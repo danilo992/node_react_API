@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
-    email: String,
+const SpotSchema = new mongoose.Schema({
+   thumbnail : String,
+   company: String,
+   price: Number,
+   techs: [String],
+   user: {
+       type: mongoose.Schema.Types.ObjectId,
+       ref: 'User'
+   }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Spot', SpotSchema);
